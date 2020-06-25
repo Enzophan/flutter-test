@@ -16,57 +16,56 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("New Flutter"),
       ),
-      body: Container(
-        // child: Container(
-        //   padding: const EdgeInsets.all(8),
-        //   width: 100,
-        //   height: 100,
-        // clipBehavior: Clip.antiAlias,
-        // alignment: Alignment.center,
-        // decoration: BoxDecoration(
-        //     color: Colors.red,
-        //     // shape: BoxShape.circle,
-        //     borderRadius: BorderRadius.circular(10),
-        //     gradient: LinearGradient(colors: [Colors.pink, Colors.blue]),
-        //     boxShadow: [BoxShadow(blurRadius: 10, color: Colors.grey)]),
-        // child: Text(
-        //   "I am a box",
-        //   textAlign: TextAlign.center,
-        //   style: TextStyle(
-        //       fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,),
-        // ),
-        // ),
-
-        height: 500,
-        color: Colors.grey,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
+      body: Center(
+        child: Container(
+          height: 100,
+          width: 100,
+          color: Colors.grey,
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
           children: <Widget>[
-            Container(
-              padding: const EdgeInsets.all(8),
-              width: 100,
-              height: 100,
-              alignment: Alignment.center,
-              color: Colors.green,
+            // DrawerHeader(
+            //   child: Text("Drawer"),
+            //   decoration: BoxDecoration(color: Colors.grey),
+            // ),
+            UserAccountsDrawerHeader(
+              accountName: Text("Zinzo Phan"),
+              accountEmail: Text("phannhan.dn@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://www.brandsvietnam.com/upload/news/480px/2018/17224_JonyIve.jpeg"),
+              ),
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              width: 100,
-              height: 100,
-              alignment: Alignment.center,
-              color: Colors.yellow,
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Zinzo Phan"),
+              subtitle: Text("Developer"),
+              trailing: Icon(Icons.edit),
+              onTap: () {},
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              width: 100,
-              height: 100,
-              alignment: Alignment.center,
-              color: Colors.red,
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Gmail"),
+              subtitle: Text("phannhan.dn@gmail.com"),
+              trailing: Icon(Icons.edit),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text("Mobile"),
+              subtitle: Text("0909000999"),
+              trailing: Icon(Icons.edit),
             ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
     return scaffold;
   }
