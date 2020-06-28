@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  static const String routeName = "/home";
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -40,13 +40,23 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("New Flutter"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
       ),
       body: data != null
-          ? ListView.builder(
+          ? GridView.builder(
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(data[index]["title"]) ,
-                  subtitle: Text  ("ID: ${data[index]["id"]}"),
+                  title: Text(data[index]["title"]),
+                  subtitle: Text("ID: ${data[index]["id"]}"),
                   leading: Image.network(data[index]["url"]),
                 );
               },
