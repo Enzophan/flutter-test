@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app1/pages/home_page_with_fb.dart';
+// import 'package:new_app1/pages/home_page_with_fb.dart';
+import 'package:new_app1/pages/home_page_with_sb.dart';
 import 'package:new_app1/pages/login_page.dart';
 import 'package:new_app1/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       home:
           Contants.prefs.getBool("loggedIn") == true 
           // ? HomePage() 
-          ? HomePageFB()
+          // ? HomePageFB()
+          ? HomePageSB()
           : LoginPage(),
       theme: ThemeData(primarySwatch: Colors.pink),
       routes: {
